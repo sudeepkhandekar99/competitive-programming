@@ -1,0 +1,20 @@
+#include <vector>
+using namespace std;
+
+vector<int> twoNumberSum(vector<int> array, int targetSum) {
+  // Write your code here.
+	int i,j;
+	for(i=0; i<array.size()-1;i++)
+	{
+		int first=array[i];
+		for(j=i+1; j<array.size(); j++)
+		{
+			int second=array[j];
+					if((first+second)==targetSum)
+					{
+						return vector<int>{first,second};
+					}
+		}
+	}
+  return {};
+}
