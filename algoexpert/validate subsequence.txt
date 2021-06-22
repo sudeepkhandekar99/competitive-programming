@@ -1,0 +1,13 @@
+using namespace std;
+
+bool isValidSubsequence(vector<int> array, vector<int> sequence) {
+  // Write your code here.
+	int seq=0;
+	for(auto val : array){
+		if(seq == sequence.size())
+			break;
+		if(sequence[seq] == val)
+			seq++;
+	}
+  return seq == sequence.size();
+}
