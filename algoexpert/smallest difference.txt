@@ -1,0 +1,38 @@
+#include <vector>
+#include <algorithm>
+#include <climits>
+using namespace std;
+
+vector<int> smallestDifference(vector<int> arrayOne, vector<int> arrayTwo) {
+	sort(arrayOne.begin(), arrayOne.end());
+	sort(arrayTwo.begin(), arrayTwo.end());
+	int index1=0;
+	int index2=0;
+	int smallest=INT_MAX;
+	int current=INT_MAX;
+	vector<int> smallestPair;
+	while(index1 < arrayOne.size() && index2 < arrayTwo.size())
+	{
+		int first=arrayOne[index1];
+		int second=arrayTwo[index2];
+		if( first < second )
+		{
+			current=second-first;
+			index1++;
+		}
+		else if(second<first)
+		{
+			current=first-second;
+			index2++;
+		}
+		else
+		{
+			return vector<int>{first,second};
+		}
+		if(current<smallest){
+			smallest=current;
+			smallestPair={first,second};
+		}
+	}
+	return smallestPair;
+}
