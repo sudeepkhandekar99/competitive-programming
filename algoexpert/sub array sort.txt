@@ -1,0 +1,12 @@
+#include <vector>
+using namespace std;
+
+vector<int> subarraySort(vector<int> array) {
+  // Write your code here.
+	auto v = array;
+	sort(v.begin(),v.end());
+	int start = INT_MAX, end = INT_MIN, sz = v.size();
+	for(int i = 0; i < sz; i++)	if(v[i] != array[i])	start = min(start, i),end = max(end, i);
+	if(start == INT_MAX)	return {-1, -1};
+  return {start, end};
+}
