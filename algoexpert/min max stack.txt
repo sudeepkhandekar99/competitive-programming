@@ -1,0 +1,40 @@
+using namespace std;
+
+// Feel free to add new properties and methods to the class.
+class MinMaxStack {
+public:
+	vector<int> v;
+	
+  int peek() {
+    // Write your code here.
+		int size = v.size();
+    return v[size - 1];
+  }
+
+  int pop() {
+    // Write your code here.
+		int sz = v.size();
+		int x = v[sz - 1];
+		v.pop_back();
+    return x;
+  }
+
+  void push(int number) {
+    // Write your code here.
+		v.push_back(number);
+  }
+
+  int getMin() {
+    // Write your code here.
+		int minE = INT_MAX;
+		for(int i = 0; i < v.size() ; i++)	minE = min(minE, v[i]);
+    return minE;
+  }
+
+  int getMax() {
+		int maxE = INT_MIN;
+		for(int i = 0; i < v.size() ; i++)	maxE = max(maxE, v[i]);
+    // Write your code here.
+    return maxE;
+  }
+};
