@@ -1,0 +1,10 @@
+using namespace std;
+
+int minimumWaitingTime(vector<int> q) {
+  // Write your code here.
+	
+	sort(q.begin(), q.end());
+	int sz = q.size(), check = 0, ans = 0;
+	for(int i = 0; i < sz; i++)	ans += q[i]*(sz - 1 - i);
+  return ans;
+}
